@@ -4,7 +4,7 @@ module "network" {
   default_vpc_id = var.default_vpc_id
 
   for_each = var.vpc
-  public_cidr_block= each.value.public_cidr_block
+  public_subnet_cidr= each.value.public_subnet_cidr
   private_subnet_cidr= each.value.private_subnet_cidr
 }
 
