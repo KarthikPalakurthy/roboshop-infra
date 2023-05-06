@@ -19,6 +19,6 @@ module "vpc" {
 #  name = each.value.name
 #}
 
-output "vpc_id" {
-  value = lookup(module.vpc, "main", null)
+output "abc" {
+  value = module.vpc
 }
