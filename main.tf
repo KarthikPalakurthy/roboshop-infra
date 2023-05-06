@@ -22,6 +22,3 @@ module "vpc" {
 output "vpc_id" {
   value = lookup(module.vpc, "main", null)
 }
-output "vpc_id_1" {
-  value = lookup(module.vpc,each.value.vpc_name, null)
-}
