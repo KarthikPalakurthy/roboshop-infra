@@ -22,5 +22,5 @@ module "vpc" {
 #}
 
 output "vpc_id" {
-  value = module.vpc.vpc_id
+  value = lookup(module.vpc,"main",null )
 }
