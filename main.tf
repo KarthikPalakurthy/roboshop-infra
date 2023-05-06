@@ -22,5 +22,5 @@ module "vpc" {
 #}
 
 output "vpc_id" {
-  value = module.vpc
+  value = module.vpc.vpc_name
 }
