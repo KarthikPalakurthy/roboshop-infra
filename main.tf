@@ -13,6 +13,9 @@ module "vpc" {
 module "docdb" {
   source = "github.com/KarthikPalakurthy/tf-docdb-module"
   env = var.env
-  default_vpc_id = var.default_vpc_id
 
+  for_each = var.docdb
+  subnet_id = lookup(lookup(lookup(module.vpc, each.value.vpc_name , null), each.value.subnets_name, null), subnet_ids, null)
+  cidr_blocks = lookup(lookup(lookup(lookup(var.vpc , each.value.vpc_name , null), "private_subnets" , null),"app", null), "cidr_block", null)
+  vpc_id = lookup(lookup(module.vpc , each.value.vpc_name , null), "vpc_id" , null)
 }
