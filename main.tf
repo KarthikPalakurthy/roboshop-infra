@@ -52,7 +52,7 @@ module "elasticache" {
 }
 
 module "rabbitmq" {
-  source = "github.com/KarthikPalakurthy/tf-elasticache-module"
+  source = "github.com/KarthikPalakurthy/tf-rabbitmq-module"
   env = var.env
 
   for_each = var.rabbitmq
