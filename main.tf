@@ -38,20 +38,18 @@ module "rds" {
   instance_class = each.value.instance_class
 }
 
-#module "elasticache" {
-#  source = "github.com/KarthikPalakurthy/tf-elasticache-module"
-#  env = var.env
-#
-#  for_each = var.rds
-#  subnet_ids = lookup(lookup(lookup(lookup(module.vpc, each.value.vpc_name , null), "private_subnet_ids", null), each.value.subnet_name, null), "subnet_ids", null )
-#  allow_cidr_blocks = lookup(lookup(lookup(lookup(var.vpc , each.value.vpc_name , null), "private_subnets" , null),"app", null), "cidr_block", null)
-#  vpc_id = lookup(lookup(module.vpc , each.value.vpc_name , null), "vpc_id" , null)
-#  num_cache_nodes = each.value.num_cache_nodes
-#  node_type = each.value.node_type
-#  engine_version = each.value.engine_version
-#  num_node_groups = each.value.num_node_groups
-#  replicas_per_node_group = each.value.replicas_per_node_group
-#}
+module "elasticache" {
+  source = "github.com/KarthikPalakurthy/tf-elasticache-module"
+  env = var.env
+
+  for_each = var.elasticache
+  subnet_ids = lookup(lookup(lookup(lookup(module.vpc, each.value.vpc_name , null), "private_subnet_ids", null), each.value.subnet_name, null), "subnet_ids", null )
+  allow_cidr_blocks = lookup(lookup(lookup(lookup(var.vpc , each.value.vpc_name , null), "private_subnets" , null),"app", null), "cidr_block", null)
+  vpc_id = lookup(lookup(module.vpc , each.value.vpc_name , null), "vpc_id" , null)
+  node_type = each.value.node_type
+  num_node_groups = each.value.num_node_groups
+  replicas_per_node_group = each.value.replicas_per_node_group
+}
 
 output "vpc" {
   value = module.vpc
