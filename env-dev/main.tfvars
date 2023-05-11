@@ -65,7 +65,7 @@ elasticache = {
   }
 }
 
-abbitmq = {
+rabbitmq = {
   main = {
     vpc_name           = "main"
     subnets_name       = "db"
