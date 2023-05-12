@@ -91,8 +91,6 @@ module "apps" {
   max_size = each.value.max_size
   min_size = each.value.min_size
   instance_type = each.value.instance_type
+  bastion_cidr = value.bastion_cidr
 }
 
-output "vpc" {
-  value = module.vpc
-}
