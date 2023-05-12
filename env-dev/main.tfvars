@@ -96,15 +96,19 @@ apps ={
   frontend = {
     component          = "frontend"
     vpc_name           = "main"
-    subnet_type        = "private_subnets"
+    subnet_type        = "private_subnet_ids"
     subnet_name        = "web"
-    port_number = 80
+    port_number        = 80
+    allow_cidr_subnets_type = "public_subnets"
+    allow_cidr_subnets_name = "public"
   }
   catalogue = {
     component          = "catalogue"
     vpc_name           = "main"
-    subnet_type        = "private_subnets"
+    subnet_type        = "private_subnet_ids"
     subnet_name        = "app"
-    port_number = 8080
+    port_number        = 8080
+    allow_cidr_subnets_type = "private_subnets"
+    allow_cidr_subnets_name = "app"
   }
 }
