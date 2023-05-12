@@ -82,10 +82,12 @@ alb = {
     vpc_name = "main"
     subnet_name = "public"
     subnet_type = "public_subnet_ids"
+    internal = false
   }
   private_alb = {
     vpc_name = "main"
     subnet_name = "app"
     subnet_type = "private_subnet_ids"
+    internal = true
   }
 }

@@ -74,6 +74,7 @@ module "alb" {
   allow_cidr_blocks = lookup(lookup(lookup(lookup(var.vpc , each.value.vpc_name , null), "private_subnets" , null),"app", null), "cidr_block", null)
   vpc_id = lookup(lookup(module.vpc , each.value.vpc_name , null), "vpc_id" , null)
   subnet_name = each.value.subnet_name
+  internal = each.value.internal
 }
 
 output "vpc" {
