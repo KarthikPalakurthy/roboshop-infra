@@ -78,10 +78,10 @@ module "alb" {
 }
 
 module "apps" {
-  source = "github.com/KarthikPalakurthy/tf-alb-module"
+  source = "github.com/KarthikPalakurthy/tf-app-module"
   env = var.env
 
-  for_each = var.alb
+  for_each = var.apps
   subnet_ids = lookup(lookup(lookup(lookup(module.vpc, each.value.vpc_name , null), each.value.subnet_type, null), each.value.subnet_name, null), "subnet_ids", null )
   allow_cidr_blocks = lookup(lookup(lookup(lookup(var.vpc , each.value.vpc_name , null), each.value.subnet_type , null),each.value.subnet_name, null), "cidr_block", null)
   vpc_id = lookup(lookup(module.vpc , each.value.vpc_name , null), "vpc_id" , null)
