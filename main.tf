@@ -70,7 +70,7 @@ module "alb" {
   env = var.env
 
   for_each = var.alb
-  subnet_ids = lookup(lookup(lookup(lookup(module.vpc, each.value.vpc_name , null), "subnet_type", null), each.value.subnet_name, null), "subnet_ids", null )
+  subnet_ids = lookup(lookup(lookup(lookup(module.vpc, each.value.vpc_name , null), each.value.subnet_type, null), each.value.subnet_name, null), "subnet_ids", null )
   allow_cidr_blocks = lookup(lookup(lookup(lookup(var.vpc , each.value.vpc_name , null), "private_subnets" , null),"app", null), "cidr_block", null)
   vpc_id = lookup(lookup(module.vpc , each.value.vpc_name , null), "vpc_id" , null)
   subnet_name = each.value.subnet_name
