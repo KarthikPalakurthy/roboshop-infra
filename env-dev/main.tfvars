@@ -91,3 +91,20 @@ alb = {
     internal = true
   }
 }
+
+apps ={
+  frontend = {
+    component          = "frontend"
+    vpc_name           = "main"
+    subnet_type        = "private_subnets"
+    subnet_name        = "web"
+    port_number = 80
+  }
+  catalogue = {
+    component          = "catalogue"
+    vpc_name           = "main"
+    subnet_type        = "private_subnets"
+    subnet_name        = "app"
+    port_number = 8080
+  }
+}
