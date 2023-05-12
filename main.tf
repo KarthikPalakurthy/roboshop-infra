@@ -87,6 +87,10 @@ module "apps" {
   vpc_id = lookup(lookup(module.vpc , each.value.vpc_name , null), "vpc_id" , null)
   component = each.value.component
   port_number = each.value.port_number
+  desired_capacity = each.value.desired_capacity
+  max_size = each.value.max_size
+  min_size = each.value.min_size
+  instance_type = each.value.instance_type
 }
 
 output "vpc" {

@@ -101,6 +101,10 @@ apps ={
     port_number        = 80
     allow_cidr_subnets_type = "public_subnets"
     allow_cidr_subnets_name = "public"
+    desired_capacity = 1
+    max_size = 2
+    min_size = 1
+    instance_type = "t3.micro"
   }
   catalogue = {
     component          = "catalogue"
@@ -110,5 +114,9 @@ apps ={
     port_number        = 8080
     allow_cidr_subnets_type = "private_subnets"
     allow_cidr_subnets_name = "app"
+    desired_capacity = 1
+    max_size = 2
+    min_size = 1
+    instance_type = "t3.micro"
   }
 }
