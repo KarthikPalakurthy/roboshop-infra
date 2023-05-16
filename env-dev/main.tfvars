@@ -108,16 +108,55 @@ apps ={
     instance_type = "t3.micro"
   }
   catalogue = {
-    component          = "catalogue"
-    vpc_name           = "main"
-    subnet_type        = "private_subnet_ids"
-    subnet_name        = "app"
-    port_number        = 8080
+    component               = "catalogue"
+    vpc_name                = "main"
+    subnet_type             = "private_subnet_ids"
+    subnet_name             = "app"
+    port_number             = 8080
     allow_cidr_subnets_type = "private_subnets"
     allow_cidr_subnets_name = "app"
-    desired_capacity = 1
-    max_size = 2
-    min_size = 1
-    instance_type = "t3.micro"
+    desired_capacity        = 1
+    max_size                = 2
+    min_size                = 1
+    instance_type           = "t3.micro"
+  }
+  user = {
+    component               = "user"
+    vpc_name                = "main"
+    subnet_type             = "private_subnet_ids"
+    subnet_name             = "app"
+    port_number             = 8080
+    allow_cidr_subnets_type = "private_subnets"
+    allow_cidr_subnets_name = "app"
+    desired_capacity        = 1
+    max_size                = 2
+    min_size                = 1
+    instance_type           = "t3.micro"
+  }
+  shipping = {
+    component               = "shipping"
+    vpc_name                = "main"
+    subnet_type             = "private_subnet_ids"
+    subnet_name             = "app"
+    port_number             = 8080
+    allow_cidr_subnets_type = "private_subnets"
+    allow_cidr_subnets_name = "app"
+    desired_capacity        = 1
+    max_size                = 2
+    min_size                = 1
+    instance_type           = "t3.micro"
+  }
+  payment = {
+    component               = "payment"
+    vpc_name                = "main"
+    subnet_type             = "private_subnet_ids"
+    subnet_name             = "app"
+    port_number             = 8080
+    allow_cidr_subnets_type = "private_subnets"
+    allow_cidr_subnets_name = "app"
+    desired_capacity        = 1
+    max_size                = 2
+    min_size                = 1
+    instance_type           = "t3.micro"
   }
 }

@@ -81,6 +81,7 @@ module "apps" {
   source = "github.com/KarthikPalakurthy/tf-app-module"
   env = var.env
 
+  depends_on = [module.docdb, module.rds, module.alb, module.rabbitmq]
   for_each = var.apps
   subnet_ids = lookup(lookup(lookup(lookup(module.vpc, each.value.vpc_name , null), each.value.subnet_type, null), each.value.subnet_name, null), "subnet_ids", null )
   allow_cidr_blocks = lookup(lookup(lookup(lookup(var.vpc , each.value.vpc_name , null), each.value.allow_cidr_subnets_type , null),each.value.allow_cidr_subnets_name, null), "cidr_block", null)
