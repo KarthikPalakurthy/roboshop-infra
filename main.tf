@@ -47,8 +47,10 @@ module "elasticache" {
   allow_cidr_blocks = lookup(lookup(lookup(lookup(var.vpc , each.value.vpc_name , null), "private_subnets" , null),"app", null), "cidr_block", null)
   vpc_id = lookup(lookup(module.vpc , each.value.vpc_name , null), "vpc_id" , null)
   node_type = each.value.node_type
-  num_node_groups = each.value.num_node_groups
+  num_cache_nodes = each.value.num_cache_nodes
   replicas_per_node_group = each.value.replicas_per_node_group
+  engine = each.value.engine
+  engine_version = each.value.engine_version
 }
 
 module "rabbitmq" {
@@ -96,3 +98,6 @@ module "apps" {
   bastion_cidr = var.bastion_cidr
 }
 
+output "redis" {
+  value = module.elasticache
+}
