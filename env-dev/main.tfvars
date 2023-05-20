@@ -108,6 +108,7 @@ apps ={
 #    max_size = 2
 #    min_size = 1
 #    instance_type = "t3.micro"
+#    alb = "public
 #  }
 #  catalogue = {
 #    component               = "catalogue"
@@ -121,6 +122,7 @@ apps ={
 #    max_size                = 2
 #    min_size                = 1
 #    instance_type           = "t3.micro"
+#    alb   = "private"
 #  }
 #  user = {
 #    component               = "user"
@@ -134,7 +136,8 @@ apps ={
 #    max_size                = 2
 #    min_size                = 1
 #    instance_type           = "t3.micro"
-#  }
+  #    alb   = "private"
+  #  }
 #  cart = {
 #    component               = "cart"
 #    vpc_name                = "main"
@@ -147,7 +150,8 @@ apps ={
 #    max_size                = 2
 #    min_size                = 1
 #    instance_type           = "t3.micro"
-#  }
+##    alb   = "private" }
+
 #  shipping = {
 #    component               = "shipping"
 #    vpc_name                = "main"
@@ -160,7 +164,9 @@ apps ={
 #    max_size                = 2
 #    min_size                = 1
 #    instance_type           = "t3.micro"
-#  }
+  #    alb   = "private"
+
+  #  }
   payment = {
     component               = "payment"
     vpc_name                = "main"
@@ -173,5 +179,7 @@ apps ={
     max_size                = 2
     min_size                = 1
     instance_type           = "t3.micro"
+    alb                     = "private"
+
   }
 }
