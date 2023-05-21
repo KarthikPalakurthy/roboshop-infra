@@ -109,6 +109,7 @@ apps ={
     min_size = 1
     instance_type = "t3.micro"
     alb = "public_alb"
+    priority = 0
   }
   catalogue = {
     component               = "catalogue"
@@ -123,6 +124,7 @@ apps ={
     min_size                = 1
     instance_type           = "t3.micro"
     alb   = "private_alb"
+    priority = 100
   }
   user = {
     component               = "user"
@@ -137,6 +139,7 @@ apps ={
     min_size                = 1
     instance_type           = "t3.micro"
       alb   = "private_alb"
+    priority = 101
     }
   cart = {
     component               = "cart"
@@ -151,6 +154,7 @@ apps ={
     min_size                = 1
     instance_type           = "t3.micro"
     alb   = "private_alb"
+    priority = 102
   }
 
   shipping = {
@@ -166,6 +170,7 @@ apps ={
     min_size                = 1
     instance_type           = "t3.micro"
       alb   = "private_alb"
+    priority = 103
 
   }
   payment = {
@@ -181,6 +186,6 @@ apps ={
     min_size                = 1
     instance_type           = "t3.micro"
     alb                     = "private_alb"
-
+    priority = 104
   }
 }
