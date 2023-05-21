@@ -74,7 +74,7 @@ module "alb" {
 
   for_each = var.alb
   subnet_ids = lookup(lookup(lookup(lookup(module.vpc, each.value.vpc_name , null), each.value.subnet_type, null), each.value.subnet_name, null), "subnet_ids", null )
-  allow_cidr_blocks = lookup(lookup(lookup(lookup(var.vpc , each.value.vpc_name , null), "private_subnets" , null),"app", null), "cidr_block", null)
+  allow_cidr_blocks = each.value.internal ? lookup(lookup(lookup(lookup(var.vpc , each.value.vpc_name , null), "private_subnets" , null),"app", null), "cidr_block", null) ? [ "0.0.0.0/0"]
   vpc_id = lookup(lookup(module.vpc , each.value.vpc_name , null), "vpc_id" , null)
   subnet_name = each.value.subnet_name
   internal = each.value.internal
@@ -88,6 +88,7 @@ module "apps" {
   for_each = var.apps
   subnet_ids = lookup(lookup(lookup(lookup(module.vpc, each.value.vpc_name , null), each.value.subnet_type, null), each.value.subnet_name, null), "subnet_ids", null )
   alb = lookup(lookup(module.alb,each.value.alb,null ), "dns_name", null )
+  alb_arn = lookup(lookup(module.alb,each.value.alb,null ), "alb_arn", null )
   allow_cidr_blocks = lookup(lookup(lookup(lookup(var.vpc , each.value.vpc_name , null), each.value.allow_cidr_subnets_type , null),each.value.allow_cidr_subnets_name, null), "cidr_block", null)
   listener = lookup(lookup(module.alb,each.value.alb,null ), "listener", null )
   vpc_id = lookup(lookup(module.vpc , each.value.vpc_name , null), "vpc_id" , null)
