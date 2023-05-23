@@ -101,6 +101,7 @@ module "apps" {
   priority = each.value.priority
 
   bastion_cidr = var.bastion_cidr
+  monitor_cidr = var.monitor_cidr
 }
 
 output "alb" {
