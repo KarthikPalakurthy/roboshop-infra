@@ -169,7 +169,7 @@ apps ={
     desired_capacity        = 2
     max_size                = 5
     min_size                = 2
-    instance_type           = "t3.small"
+    instance_type           = "t3.medium"
       alb   = "private_alb"
     priority = 103
 
