@@ -87,12 +87,14 @@ alb = {
     subnet_name = "public"
     subnet_type = "public_subnet_ids"
     internal = false
+    dns_domain = "www"
   }
   private_alb = {
     vpc_name = "main"
     subnet_name = "app"
     subnet_type = "private_subnet_ids"
     internal = true
+    dns_domain = " "
   }
 }
 
@@ -169,7 +171,7 @@ apps ={
     desired_capacity        = 3
     max_size                = 10
     min_size                = 3
-    instance_type           = "t3.medium"
+     instance_type           = "t3.medium"
       alb   = "private_alb"
     priority = 103
 

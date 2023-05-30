@@ -78,6 +78,7 @@ module "alb" {
   vpc_id = lookup(lookup(module.vpc , each.value.vpc_name , null), "vpc_id" , null)
   subnet_name = each.value.subnet_name
   internal = each.value.internal
+  dns_domain= each.value.dns_domain
 }
 
 module "apps" {
