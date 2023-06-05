@@ -2,6 +2,7 @@ bastion_cidr = ["172.31.9.112/32"]
 monitor_cidr = ["172.31.15.172/32"]
 env = "prod"
 default_vpc_id = "vpc-096e167dbab1ac004"
+hosted_zone = "devpractice.online"
 
 vpc = {
   main = {
