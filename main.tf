@@ -114,7 +114,7 @@ module "minikube" {
   ssh_public_key = "~/.ssh/id_rsa.pub"
   aws_subnet_id =  element(lookup(lookup(lookup(lookup(module.vpc, "main", null), "public_subnets", null), "public", null), "subnet_ids", null), 0)
 
-  //ami_image_id = data.aws_ami.centos8.id
+  ami_image_id = data.aws_ami.centos8.id
   hosted_zone = var.hosted_zone
   hosted_zone_private = false
 
