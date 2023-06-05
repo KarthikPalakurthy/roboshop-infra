@@ -110,9 +110,10 @@ module "minikube" {
 
   aws_region    = "us-east-1"
   cluster_name  = "Minikube"
-  aws_instance_type = "t2.medium"
+  aws_instance_type = "t3.medium"
   ssh_public_key = "~/.ssh/id_rsa.pub"
-  aws_subnet_id = element(lookup(lookup(lookup(lookup(module.vpc, "main" , null), "public_subnets", null), "public", null), "subnet_ids", null ), 0)
+  aws_subnet_id =  element(lookup(lookup(lookup(lookup(module.vpc, "main", null), "public_subnets", null), "public", null), "subnet_ids", null), 0)
+
   //ami_image_id = data.aws_ami.centos8.id
   hosted_zone = var.hosted_zone
   hosted_zone_private = false
